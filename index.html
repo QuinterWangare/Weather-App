@@ -30,7 +30,7 @@
         <main>
           <h1 id="city">Nakuru</h1>
           <section class="weather-app-details">
-            <p class="current-date">Tuesday 21:47</p>
+            <p id="time"></p>
             <p id="temperature" class="temperature">
               <span
                 id="temperature-degree-value"
@@ -40,18 +40,21 @@
               <span class="temperature-unit">°C </span>
             </p>
             <span class="humidity"
-              >Humidity: <span class="humidity-value">87%</span></span
-            >
+              >Humidity:
+              <span id="humidity-value" class="humidity-value"> </span
+            ></span>
             <br />
             <span class="wind">
-              Wind: <span class="wind-value">4.63km/h</span></span
-            >
+              Wind:
+              <span id="wind-speed" class="wind-speed"> </span
+            ></span>
           </section>
           <img
             src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            id="weather-icon"
             class="weather-app-icon"
           />
-          <div class="weather-description">Light rain</div>
+          <div id="weather-description" class="weather-description"></div>
         </main>
       </section>
       <footer>

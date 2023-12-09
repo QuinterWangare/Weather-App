@@ -61,25 +61,29 @@ h1 {
   margin-bottom: 0;
 }
 
+.temperature {
+  font-weight: 500;
+  color: #000000;
+}
+
 .temperature-degree-value {
   font-size: 60px;
-  color: #000000;
-  font-weight: 500;
 }
 
 .temperature-unit {
-  color: #000000;
   font-size: 20px;
   position: relative;
-  top: -37px;
+  top: -27px;
 }
 
 .humidity-value {
   color: #885df1;
+  font-weight: bold;
 }
 
-.wind-value {
+.wind-speed {
   color: #885df1;
+  font-weight: bold;
 }
 
 .weather-description {
@@ -88,7 +92,7 @@ h1 {
 }
 a {
   text-decoration: none;
-  color: #885df1
+  color: #885df1;
 }
 
 footer {
