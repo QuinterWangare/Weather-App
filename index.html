@@ -3,33 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <header>
-      <form>
-        <input type="search" placeholder="Enter a city" required />
-        <input type="submit" value="Search" />
-      </form>
-    </header>
-    <main>
-      <h1>Nakuru</h1>
-      <div>Tuesday 21:47</div>
-      <p>7 °C | °F Humidity: 87%, Wind: 4.63km/h</p>
-      <div>Broken clouds</div>
-    </main>
-    <footer>
-      Coded by
-      <a href="https://github.com/QuinterWangare" target="_blank"
-        >Quinter Wangare</a
-      >, is
-      <a href="https://github.com/QuinterWangare/Weather-App" target="_blank"
-        >open-sourced on GitHub</a
-      >
-      and
-      <a href="https://main--meteor-point.netlify.app/" target="_blank">
-        hosted on Netlify</a
-      >
-    </footer>
+    <div class="weather-app">
+      <section class="weather-content">
+        <header>
+          <form>
+            <input
+              type="search"
+              placeholder="Enter a city"
+              id="search-form-input"
+              class="search-form-input"
+              required
+            />
+            <input
+              type="submit"
+              value="Search"
+              id="search-form-button"
+              class="search-form-button"
+            />
+          </form>
+        </header>
+        <main>
+          <h1>Nakuru</h1>
+          <section class="weather-app-details">
+            <p class="current-date">Tuesday 21:47</p>
+            <p class="temperature-degree">
+              <span class="temperature-degree-value">7</span>
+              <span class="temperature-unit">°C </span>
+            </p>
+            <span class="humidity"
+              >Humidity: <span class="humidity-value">87%</span></span
+            >
+            <br />
+            <span class="wind">
+              Wind: <span class="wind-value">4.63km/h</span></span
+            >
+          </section>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            class="weather-app-icon"
+          />
+          <div class="weather-description">Light rain</div>
+        </main>
+      </section>
+      <footer>
+        Coded by
+        <a href="https://github.com/QuinterWangare" target="_blank"
+          >Quinter Wangare</a
+        >, is
+        <a href="https://github.com/QuinterWangare/Weather-App" target="_blank"
+          >open-sourced on GitHub</a
+        >
+        and
+        <a href="https://main--meteor-point.netlify.app/" target="_blank">
+          hosted on Netlify</a
+        >
+      </footer>
+    </div>
   </body>
 </html>
