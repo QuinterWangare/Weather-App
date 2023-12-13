@@ -55,7 +55,36 @@ function cityInput(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="weather-forecast-day">
+      <div class="weather-forecast-date">${day}</div>
+                <div class="weather-forecast-icon">
+                  <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                />
+                </div>
+                <div class="weather-forecast-temperatures">
+                  <div class="weather-forecast-max-temperature">
+                    <strong>15°</strong>
+                    <span class="weather-forecast-min-temperature">9°</span>
+                  </div>
+                </div>
+                </div>`;
+  });
+
+  let forecastElement = document.querySelector("#weather-forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", cityInput);
 
 searchCity("Nairobi");
+
+displayForecast();
