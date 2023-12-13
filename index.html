@@ -8,51 +8,81 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="weather-app">
-      <section class="weather-content">
-        <header>
-          <form id="search-form" class="search-form">
-            <input
-              type="search"
-              placeholder="Enter a city"
-              id="search-form-input"
-              class="search-form-input"
-              required
-            />
-            <input
-              type="submit"
-              value="Search"
-              id="search-form-button"
-              class="search-form-button"
-            />
-          </form>
-        </header>
-        <main>
-          <h1 id="city">Nakuru</h1>
-          <section class="weather-app-details">
-            <p id="time" class="time"></p>
+    <div class="container">
+      <header>
+        <form id="search-form" class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city"
+            id="search-form-input"
+            class="search-form-input"
+            required
+          />
+          <input
+            type="submit"
+            value="Search"
+            id="search-form-button"
+            class="search-form-button"
+          />
+        </form>
+      </header>
+      <main>
+        <div class="weather-app">
+        <div class="weather-content">
+        <h1 id="city">Nakuru</h1>
+            <p id="time" class="time">Tuesday 12:05</p>
             <p id="temperature" class="temperature">
+              <span id="icon" class="weather-app-icon">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+            />
+              </span>
+
               <span
                 id="temperature-degree-value"
                 class="temperature-degree-value"
-                >7</span
+                >27</span
               >
               <span class="temperature-unit">°C </span>
+              
             </p>
-            <span class="humidity"
-              >Humidity:
-              <span id="humidity-value" class="humidity-value"> </span
-            ></span>
-            <br />
-            <span class="wind">
-              Wind:
-              <span id="wind-speed" class="wind-speed"> </span
-            ></span>
-          </section>
-          <div id="icon"></div>
-          <div id="weather-description" class="weather-description"></div>
+            </div>
+            <div class="weather-details">
+              <ul>
+                <li id="weather-description" class="weather-description">
+            broken clouds
+          </li>
+
+              <li class="humidity"
+                >Humidity:
+                <span id="humidity-value" class="humidity-value">
+                  7%</span
+                ></li
+              >
+              <li class="wind">
+                Wind:
+                <span id="wind-speed" class="wind-speed"> 22.3km/h</span></span
+              >
+              </li>
+            </ul>
+          </div>
         </main>
-      </section>
+
+        <div class="weather-forecast">
+            <div class="weather-forecast-day">Wed</div>
+            <div class="weather-forecast-icon">
+              <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+            />
+            </div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-max-temperature">
+                <strong>15°</strong>
+                <span class="weather-forecast-min-temperature">9°</span>
+              </div>
+            </div>
+          </div>
+
       <footer>
         Coded by
         <a href="https://github.com/QuinterWangare" target="_blank"
@@ -66,7 +96,7 @@
           hosted on Netlify</a
         >
       </footer>
-    </div>
+      </div>
     <script src="src/app.js"></script>
   </body>
 </html>
