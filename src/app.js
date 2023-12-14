@@ -19,6 +19,8 @@ function updateWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -55,27 +57,45 @@ function cityInput(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
-  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", " Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+function getForecast(city) {
+  let apiKey = "21467o0f2a3b311a0c713aaae1ct64a4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="weather-forecast-day">
-      <div class="weather-forecast-date">${day}</div>
-                <div class="weather-forecast-icon">
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="weather-forecast-day">
+      <div class="weather-forecast-date">${formatDay(day.time)}</div>
+                <div>
                   <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                  src="${day.condition.icon_url}" class="weather-forecast-icon"
                 />
                 </div>
                 <div class="weather-forecast-temperatures">
                   <div class="weather-forecast-max-temperature">
-                    <strong>15°</strong>
-                    <span class="weather-forecast-min-temperature">9°</span>
+                    <strong>${Math.round(day.temperature.maximum)}°</strong>
+                    <span class="weather-forecast-min-temperature">${Math.round(
+                      day.temperature.minimum
+                    )}°</span>
                   </div>
                 </div>
                 </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#weather-forecast");
@@ -86,5 +106,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", cityInput);
 
 searchCity("Nairobi");
-
-displayForecast();
